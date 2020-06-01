@@ -1,6 +1,6 @@
 package com.testng.class02;
 
-import com.pages.DashBoardPageElements;
+import com.pages.DashboardPageElements;
 import com.pages.LoginPageElements;
 import com.utils.CommonMethods;
 import com.utils.ConfigsReader;
@@ -14,7 +14,7 @@ public class classaa extends CommonMethods {
 		sendText(login.password, ConfigsReader.getProperty("password"));
 		click(login.loginBtn);
 		wait(2);
-		DashBoardPageElements dashLogin = new DashBoardPageElements();
+		DashboardPageElements dashLogin = new DashboardPageElements();
 
 		boolean bool = dashLogin.welcome.isEnabled();
 		System.out.println(bool);

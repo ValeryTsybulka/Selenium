@@ -3,7 +3,7 @@ package com.testng.class02;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import com.pages.DashBoardPageElements;
+import com.pages.DashboardPageElements;
 import com.pages.LoginPageElements;
 import com.utils.CommonMethods;
 import com.utils.ConfigsReader;
@@ -26,7 +26,7 @@ public class SoftAssort extends CommonMethods{
   @Test
   public void f() {
 		LoginPageElements login = new LoginPageElements();
-		DashBoardPageElements loginDashboard=new DashBoardPageElements();
+		DashboardPageElements loginDashboard=new DashboardPageElements();
 		
 		boolean logoDisplayed = login.logo.isDisplayed();
 		SoftAssert soft=new SoftAssert();

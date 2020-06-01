@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="test package">
+    <classes>
+      <class name="com.test.Bayram"/>
+      <class name="com.test.AddEmployeeHW"/> <!-- I want to test all methods of com.test.LoginTest -->
+     
+    </classes>
+  </test> <!-- Test -->
+  
+  <test name="test class02">
+  <packages>
+  <package name="com.class02"></package>
+  </packages>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

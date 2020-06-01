@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Lisener Suite">
+
+<listeners>
+<listener class-name="com.utils.Listener"></listener>
+</listeners>
+  <test  name="Lisener Test">
+    <classes>
+      <class name="com.testng.class04.LisnerDemo"/>
+    </classes>
+  </test> 
+</suite> 

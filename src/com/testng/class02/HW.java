@@ -2,7 +2,7 @@ package com.testng.class02;
 
 import org.testng.annotations.Test;
 
-import com.pages.DashBoardPageElements;
+import com.pages.DashboardPageElements;
 import com.pages.LoginPageElements;
 import com.utils.CommonMethods;
 import com.utils.ConfigsReader;
@@ -53,7 +53,7 @@ public class HW extends CommonMethods {
 
 		// 3rd way
 		click(login.loginBtn);
-		DashBoardPageElements dashboard = new DashBoardPageElements();
+		DashboardPageElements dashboard = new DashboardPageElements();
 
 		boolean displayed = dashboard.logo.isDisplayed();
 

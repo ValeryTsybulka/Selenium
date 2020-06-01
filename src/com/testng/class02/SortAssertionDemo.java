@@ -3,7 +3,7 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
-import com.pages.DashBoardPageElements;
+import com.pages.DashboardPageElements;
 import com.pages.LoginPageElements;
 import com.utils.CommonMethods;
 import com.utils.ConfigsReader;
@@ -27,7 +27,7 @@ public class SortAssertionDemo extends CommonMethods{
 	@Test
 	public void logoAndWelcomeValidation() {
 		LoginPageElements login = new LoginPageElements();
-		DashBoardPageElements dashboard = new DashBoardPageElements();
+		DashboardPageElements dashboard = new DashboardPageElements();
 
 		// Logo assertion
 		boolean logoDisplayed = login.logo.isDisplayed();

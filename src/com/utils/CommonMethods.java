@@ -1,18 +1,23 @@
 package com.utils;
 
+import java.io.File;
 import java.util.List;
+import java.util.Set;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchFrameException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.UnexpectedTagNameException;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class CommonMethods extends BaseClass {
+public class CommonMethods extends PageInitializer {
 
 	/**
 	 * Method that clears and sends keys
@@ -143,7 +148,20 @@ public class CommonMethods extends BaseClass {
 			e.printStackTrace();
 		}
 	}
-
+	/**
+	 * Method switches focus to child window
+	 */
+	public static void switchToChildWindow() {
+		String mainWindow = driver.getWindowHandle();
+		Set<String> windows = driver.getWindowHandles();
+		for (String window : windows) {
+			if (!window.equals(mainWindow)) {
+				driver.switchTo().window(window);
+				break;
+			}
+		}
+	}
+	
 	public static WebDriverWait getWaitObject() {
 		WebDriverWait wait = new WebDriverWait(driver, Constants.EXPLICIT_WAIT_TIME);
 		return wait;
@@ -192,6 +210,34 @@ public class CommonMethods extends BaseClass {
 	public static void scrollUp(int pixel) {
 		getJSObject().executeScript("window.scrollBy(0,-" + pixel + ")");
 	}
+	
+	/**
+	 * This method will take a screenshot
+	 * 
+	 * @param filename
+	 */
+	public static String takeScreenshot(String filename) {
+		TakesScreenshot ts= (TakesScreenshot)driver;
+		File file=ts.getScreenshotAs(OutputType.FILE);
+		String destinationFile=Constants.SCREENSHOT_FILEPATH+filename+".png";
+		try {
+		FileUtils.copyFile(file, new File("screenshot/"+filename+".pig"));
+		}catch (Exception ex) {
+			System.out.println("Cannot take screenshot!");
+		}
+		return destinationFile;
+	}
+	
+//	public static void takeScreenShot(String folderName, String testName, int num) {
+//		TakesScreenshot ts = (TakesScreenshot) driver;
+//		File sourceFile = ts.getScreenshotAs(OutputType.FILE);
+//		try {
+//			FileUtils.copyFile(sourceFile, new File("ScreenShots/"+folderName+"/"+testName + num + ".png"));
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//	}
+	
 
 	public static void wait(int second) {
 		try {
@@ -200,6 +246,16 @@ public class CommonMethods extends BaseClass {
 			e.printStackTrace();
 		}
 	}
+	public static void isDisplay(WebElement element) {
+		boolean displayText = element.isDisplayed();
+		String text = element.getText();
+		if(displayText) {
+			System.out.println(text + " is display. Test Case passed");
+		}else {
+			System.out.println(text + " is NOT display. Test Case failed");
+		}
+	}
+	
 /**
  * this method will select a day from a calendar
  * @param element

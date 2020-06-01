@@ -13,6 +13,12 @@ public class Constants {
 
 	public static final int EXPLICIT_WAIT_TIME=30;
 	
-	
+	public static final String TESTDATA_FILEPATH=
+			System.getProperty("user.dir"+"src\\test\resources\\HrmsTestData.xlsx");
 
+	public static final String REPORT_FILEPATH=
+			System.getProperty("user.dir"+"targrt\\html-report\\HTMS.html");
+	
+	public static final String SCREENSHOT_FILEPATH=System.getProperty("user.dir"+"\\screenshot");
+	
 }
